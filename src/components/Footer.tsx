@@ -7,14 +7,14 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <div className="text-3xl font-bold mb-4">DOSITA</div>
+            <div className="text-3xl font-bold mb-4">Pool</div>
             <p className="text-gray-300 mb-4 leading-relaxed">
               Engineering excellence in water treatment solutions. 
               Trusted by businesses worldwide for reliable, 
               efficient, and compliant water systems.
             </p>
             <div className="text-sm text-gray-400">
-              <p>© 2024 Dosita. All rights reserved.</p>
+              <p>© 2024 Pool. All rights reserved.</p>
             </div>
           </div>
 

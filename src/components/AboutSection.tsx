@@ -25,7 +25,7 @@ const AboutSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-engineering-navy mb-6">
-            The DOSITA
+            The Pool
             <span className="block text-primary">Difference</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
