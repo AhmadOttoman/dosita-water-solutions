@@ -28,6 +28,14 @@ export default {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
+				'industrial-blue': {
+					DEFAULT: 'hsl(var(--industrial-blue))',
+					foreground: 'hsl(var(--industrial-blue-foreground))'
+				},
+				'engineering-navy': {
+					DEFAULT: 'hsl(var(--engineering-navy))',
+					foreground: 'hsl(var(--engineering-navy-foreground))'
+				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
