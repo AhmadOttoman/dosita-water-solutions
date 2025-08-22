@@ -5,6 +5,19 @@ import { useState } from "react";
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleNavClick = (targetId: string) => {
+    setIsMenuOpen(false);
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      const offset = 80; // Account for fixed navigation height
+      const elementPosition = targetSection.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-6">
@@ -18,16 +31,16 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors">
+            <a href="#home" onClick={() => handleNavClick("home")} className="text-foreground hover:text-primary transition-colors">
               Home
             </a>
-            <a href="#products" className="text-foreground hover:text-primary transition-colors">
+            <a href="#products" onClick={() => handleNavClick("products")} className="text-foreground hover:text-primary transition-colors">
               Products
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
+            <a href="#about" onClick={() => handleNavClick("about")} className="text-foreground hover:text-primary transition-colors">
               About
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
+            <a href="#contact" onClick={() => handleNavClick("contact")} className="text-foreground hover:text-primary transition-colors">
               Contact
             </a>
             <Button variant="industrial" size="sm">
@@ -50,16 +63,16 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-4">
-            <a href="#home" className="block text-foreground hover:text-primary transition-colors">
+            <a href="#home" onClick={() => handleNavClick("home")} className="block text-foreground hover:text-primary transition-colors">
               Home
             </a>
-            <a href="#products" className="block text-foreground hover:text-primary transition-colors">
+            <a href="#products" onClick={() => handleNavClick("products")} className="block text-foreground hover:text-primary transition-colors">
               Products
             </a>
-            <a href="#about" className="block text-foreground hover:text-primary transition-colors">
+            <a href="#about" onClick={() => handleNavClick("about")} className="block text-foreground hover:text-primary transition-colors">
               About
             </a>
-            <a href="#contact" className="block text-foreground hover:text-primary transition-colors">
+            <a href="#contact" onClick={() => handleNavClick("contact")} className="block text-foreground hover:text-primary transition-colors">
               Contact
             </a>
             <Button variant="industrial" size="sm" className="w-full">

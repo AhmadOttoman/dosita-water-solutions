@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/30 to-background">
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/30 to-background">
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
@@ -25,6 +25,17 @@ const HeroSection = () => {
               variant="hero" 
               size="lg" 
               className="text-lg px-10 py-6 h-auto font-medium"
+              onClick={() => {
+                const productsSection = document.getElementById('products');
+                if (productsSection) {
+                  const offset = 80; // Account for fixed navigation height
+                  const elementPosition = productsSection.offsetTop - offset;
+                  window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
             >
               See Our Products
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -34,6 +45,17 @@ const HeroSection = () => {
               variant="outline" 
               size="lg"
               className="text-lg px-10 py-6 h-auto font-medium border-2 hover:bg-primary hover:text-white hover:border-primary"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  const offset = 80; // Account for fixed navigation height
+                  const elementPosition = contactSection.offsetTop - offset;
+                  window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
             >
               Contact Engineering
             </Button>
