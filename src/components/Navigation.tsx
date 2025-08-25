@@ -34,7 +34,7 @@ const Navigation = () => {
             <a href="#home" onClick={() => handleNavClick("home")} className="text-foreground hover:text-primary transition-colors">
               Home
             </a>
-            <a href="#products" onClick={() => handleNavClick("products")} className="text-foreground hover:text-primary transition-colors">
+            <a href="/products" className="text-foreground hover:text-primary transition-colors">
               Products
             </a>
             <a href="#about" onClick={() => handleNavClick("about")} className="text-foreground hover:text-primary transition-colors">
@@ -66,7 +66,7 @@ const Navigation = () => {
             <a href="#home" onClick={() => handleNavClick("home")} className="block text-foreground hover:text-primary transition-colors">
               Home
             </a>
-            <a href="#products" onClick={() => handleNavClick("products")} className="block text-foreground hover:text-primary transition-colors">
+            <a href="/products" className="block text-foreground hover:text-primary transition-colors">
               Products
             </a>
             <a href="#about" onClick={() => handleNavClick("about")} className="block text-foreground hover:text-primary transition-colors">
