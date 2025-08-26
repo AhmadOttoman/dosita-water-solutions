@@ -12,6 +12,7 @@ import electricHeaters from "@/assets/electric-heaters.jpg";
 import circulationPumps from "@/assets/circulation-pumps.jpg";
 import { ArrowRight, Droplets, Shield, Waves, Zap, Atom, Wind, Beaker, Thermometer, RotateCw } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProductsSection = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -177,9 +178,12 @@ const ProductsSection = () => {
                       <Button 
                         variant="industrial" 
                         className="w-full group-hover:bg-primary group-hover:text-white"
+                        asChild
                       >
-                        {product.cta}
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        <Link to={`/products?product=${product.id}`}>
+                          {product.cta}
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -192,10 +196,10 @@ const ProductsSection = () => {
           
           <div className="text-center mt-8">
             <Button variant="outline" asChild>
-              <a href="/products">
+              <Link to="/products">
                 View All Products
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

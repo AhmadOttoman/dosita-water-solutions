@@ -5,9 +5,21 @@ import Footer from "@/components/Footer";
 import treatmentSystems from "@/assets/treatment-systems.jpg";
 import disinfectionSystems from "@/assets/disinfection-systems.jpg";
 import poolEquipment from "@/assets/pool-equipment.jpg";
-import { ArrowRight, Droplets, Shield, Waves, Zap, Filter, Settings } from "lucide-react";
+import uvSystems from "@/assets/uv-systems.jpg";
+import copperIonization from "@/assets/copper-ionization.jpg";
+import ozoneGenerator from "@/assets/ozone-generator.jpg";
+import dosingSystems from "@/assets/dosing-systems.jpg";
+import electricHeaters from "@/assets/electric-heaters.jpg";
+import circulationPumps from "@/assets/circulation-pumps.jpg";
+import { ArrowRight, Droplets, Shield, Waves, Zap, Filter, Settings, Atom, Wind, Beaker, Thermometer, RotateCw } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const Products = () => {
+  const [searchParams] = useSearchParams();
+  const focusProduct = searchParams.get('product');
+  const productRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
   const products = [
     {
       id: "treatment",
@@ -70,6 +82,132 @@ const Products = () => {
         "Filter Media": "Sand, DE, cartridge",
         "Automation": "Web-based controls",
         "Efficiency": "ENERGY STAR rated"
+      }
+    },
+    {
+      id: "uv-systems",
+      title: "UV Systems",
+      description: "Advanced ultraviolet disinfection systems for chemical-free water treatment and pathogen elimination.",
+      image: uvSystems,
+      icon: <Zap className="h-8 w-8 text-primary" />,
+      features: [
+        "UV-C technology for disinfection",
+        "No chemical residue or byproducts",
+        "Low maintenance requirements",
+        "Automatic intensity monitoring",
+        "Energy efficient LED options",
+        "Real-time performance tracking"
+      ],
+      specifications: {
+        "UV Dose": "30-300 mJ/cm²",
+        "Lamp Type": "Low/Medium pressure",
+        "Power": "120-480V available",
+        "Material": "316L stainless steel"
+      }
+    },
+    {
+      id: "copper-ionization",
+      title: "Copper Ionization Systems",
+      description: "Eco-friendly copper ionization systems for natural water sanitization using mineral technology.",
+      image: copperIonization,
+      icon: <Atom className="h-8 w-8 text-primary" />,
+      features: [
+        "Natural mineral sanitization",
+        "Long-lasting copper electrodes",
+        "Mineral-based water treatment", 
+        "Reduced chemical requirements",
+        "Automatic ion level control",
+        "Environmentally friendly process"
+      ],
+      specifications: {
+        "Ion Output": "0.2-2.0 ppm Cu",
+        "Electrode Life": "1-3 years",
+        "Power": "12-24V DC",
+        "Material": "99.9% pure copper"
+      }
+    },
+    {
+      id: "ozone-generator",
+      title: "Ozone Generation Systems",
+      description: "Powerful ozone generation systems for superior water oxidation and advanced disinfection.",
+      image: ozoneGenerator,
+      icon: <Wind className="h-8 w-8 text-primary" />,
+      features: [
+        "On-site ozone production",
+        "Advanced oxidation process",
+        "Eco-friendly disinfection",
+        "No chemical storage required",
+        "Automated ozone monitoring",
+        "Corona discharge technology"
+      ],
+      specifications: {
+        "Ozone Output": "1-100 g/hr",
+        "Production": "Corona discharge",
+        "Power": "120-480V available",
+        "Gas Feed": "Oxygen or air"
+      }
+    },
+    {
+      id: "dosing",
+      title: "Chemical Dosing Systems",
+      description: "Precision chemical dosing pumps and systems for accurate water treatment chemical delivery.",
+      image: dosingSystems,
+      icon: <Beaker className="h-8 w-8 text-primary" />,
+      features: [
+        "Precision metering pumps",
+        "Automated control systems",
+        "Multiple chemical handling",
+        "Flow-proportional dosing",
+        "Safety interlocks included",
+        "Remote monitoring capability"
+      ],
+      specifications: {
+        "Flow Rate": "0.1-500 GPH",
+        "Pressure": "Up to 150 PSI",
+        "Control": "4-20mA, digital",
+        "Materials": "PVDF, 316SS"
+      }
+    },
+    {
+      id: "electric-heaters",
+      title: "Electric Water Heaters",
+      description: "Efficient electric heating systems for optimal water temperature control in all applications.",
+      image: electricHeaters,
+      icon: <Thermometer className="h-8 w-8 text-primary" />,
+      features: [
+        "Energy efficient heating elements",
+        "Digital temperature controls",
+        "Corrosion resistant construction",
+        "Multiple power configurations",
+        "Safety shutdown systems",
+        "Modular design options"
+      ],
+      specifications: {
+        "Power": "5-500 kW available",
+        "Voltage": "208-480V, 3-phase",
+        "Material": "316L stainless steel",
+        "Control": "Digital PID"
+      }
+    },
+    {
+      id: "circulation-pumps",
+      title: "Water Circulation Pumps",
+      description: "High-performance circulation pumps for continuous water flow and optimal system operation.",
+      image: circulationPumps,
+      icon: <RotateCw className="h-8 w-8 text-primary" />,
+      features: [
+        "Variable speed drive capability",
+        "High hydraulic efficiency",
+        "Energy saving operations",
+        "Corrosion resistant construction",
+        "Low noise operation",
+        "Easy maintenance access"
+      ],
+      specifications: {
+        "Flow Rate": "100-5000 GPM",
+        "Head": "Up to 200 feet",
+        "Power": "1-200 HP available",
+        "Efficiency": "Up to 85%"
       }
     },
     {
@@ -137,6 +275,18 @@ const Products = () => {
     }
   ];
 
+  // Scroll to focused product when component mounts or product parameter changes
+  useEffect(() => {
+    if (focusProduct && productRefs.current[focusProduct]) {
+      setTimeout(() => {
+        productRefs.current[focusProduct]?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }, 100);
+    }
+  }, [focusProduct]);
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -164,7 +314,10 @@ const Products = () => {
             {products.map((product) => (
               <Card 
                 key={product.id}
-                className="group hover:shadow-professional transition-all duration-300 hover:-translate-y-2 border-0 shadow-card bg-gradient-to-br from-card to-secondary/20"
+                ref={(el) => { productRefs.current[product.id] = el; }}
+                className={`group hover:shadow-professional transition-all duration-300 hover:-translate-y-2 border-0 shadow-card bg-gradient-to-br from-card to-secondary/20 ${
+                  focusProduct === product.id ? 'ring-2 ring-primary shadow-primary/20' : ''
+                }`}
               >
                 <CardHeader className="pb-4">
                   <div className="relative h-48 rounded-lg overflow-hidden mb-4">
