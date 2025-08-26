@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import treatmentSystems from "@/assets/treatment-systems.jpg";
 import disinfectionSystems from "@/assets/disinfection-systems.jpg";
 import poolEquipment from "@/assets/pool-equipment.jpg";
-import { ArrowRight, Droplets, Shield, Waves } from "lucide-react";
+import { ArrowRight, Droplets, Shield, Waves, ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const ProductsSection = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [isPlaying, setIsPlaying] = useState(true);
   const products = [
     {
       id: "treatment",
@@ -37,6 +40,20 @@ const ProductsSection = () => {
     }
   ];
 
+  // Auto-play functionality
+  useEffect(() => {
+    if (!api || !isPlaying) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 4000); // Auto-advance every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [api, isPlaying]);
+
+  const handleMouseEnter = () => setIsPlaying(false);
+  const handleMouseLeave = () => setIsPlaying(true);
+
   return (
     <section id="products" className="py-20 bg-gradient-to-b from-background to-secondary">
       <div className="max-w-7xl mx-auto px-6">
@@ -52,12 +69,26 @@ const ProductsSection = () => {
         </div>
 
         <div className="relative">
+          {/* Beautiful directional arrow indicator */}
+          {isPlaying && (
+            <div className="absolute top-4 right-4 z-10 flex items-center space-x-2 bg-primary/10 backdrop-blur-sm rounded-full px-4 py-2 border border-primary/20">
+              <div className="flex items-center space-x-1">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-primary">Auto</span>
+              </div>
+              <ChevronRight className="h-4 w-4 text-primary animate-pulse" />
+            </div>
+          )}
+          
           <Carousel
             opts={{
               align: "start",
               loop: true,
             }}
+            setApi={setApi}
             className="w-full"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {products.map((product) => (
