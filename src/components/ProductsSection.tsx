@@ -4,7 +4,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import treatmentSystems from "@/assets/treatment-systems.jpg";
 import disinfectionSystems from "@/assets/disinfection-systems.jpg";
 import poolEquipment from "@/assets/pool-equipment.jpg";
-import { ArrowRight, Droplets, Shield, Waves } from "lucide-react";
+import uvSystems from "@/assets/uv-systems.jpg";
+import copperIonization from "@/assets/copper-ionization.jpg";
+import ozoneGenerator from "@/assets/ozone-generator.jpg";
+import dosingSystems from "@/assets/dosing-systems.jpg";
+import electricHeaters from "@/assets/electric-heaters.jpg";
+import circulationPumps from "@/assets/circulation-pumps.jpg";
+import { ArrowRight, Droplets, Shield, Waves, Zap, Atom, Wind, Beaker, Thermometer, RotateCw } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const ProductsSection = () => {
@@ -37,6 +43,60 @@ const ProductsSection = () => {
       icon: <Waves className="h-8 w-8 text-primary" />,
       features: ["High-capacity pumps", "Advanced filtration", "Smart controls"],
       cta: "View Pool Systems"
+    },
+    {
+      id: "uv-systems",
+      title: "UV Systems",
+      description: "Advanced ultraviolet disinfection systems for chemical-free water treatment.",
+      image: uvSystems,
+      icon: <Zap className="h-8 w-8 text-primary" />,
+      features: ["UV-C technology", "No chemical residue", "Low maintenance"],
+      cta: "View UV Systems"
+    },
+    {
+      id: "copper-ionization",
+      title: "Copper Ionization",
+      description: "Eco-friendly copper ionization systems for natural water sanitization.",
+      image: copperIonization,
+      icon: <Atom className="h-8 w-8 text-primary" />,
+      features: ["Natural sanitization", "Long-lasting electrodes", "Mineral-based"],
+      cta: "View Copper Systems"
+    },
+    {
+      id: "ozone-generator",
+      title: "Ozone Generator",
+      description: "Powerful ozone generation systems for superior water oxidation.",
+      image: ozoneGenerator,
+      icon: <Wind className="h-8 w-8 text-primary" />,
+      features: ["Ozone production", "Oxidation process", "Eco-friendly"],
+      cta: "View Ozone Systems"
+    },
+    {
+      id: "dosing",
+      title: "Dosing Systems",
+      description: "Precision chemical dosing pumps for accurate water treatment.",
+      image: dosingSystems,
+      icon: <Beaker className="h-8 w-8 text-primary" />,
+      features: ["Precision dosing", "Automated control", "Multiple chemicals"],
+      cta: "View Dosing Systems"
+    },
+    {
+      id: "electric-heaters",
+      title: "Electric Heaters",
+      description: "Efficient electric heating systems for optimal water temperature control.",
+      image: electricHeaters,
+      icon: <Thermometer className="h-8 w-8 text-primary" />,
+      features: ["Energy efficient", "Digital controls", "Corrosion resistant"],
+      cta: "View Heater Systems"
+    },
+    {
+      id: "circulation-pumps",
+      title: "Circulation Pumps",
+      description: "High-performance circulation pumps for continuous water flow.",
+      image: circulationPumps,
+      icon: <RotateCw className="h-8 w-8 text-primary" />,
+      features: ["Variable speed", "High capacity", "Energy saving"],
+      cta: "View Pump Systems"
     }
   ];
 
