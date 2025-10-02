@@ -1,7 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useParams, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
 import treatmentSystems from "@/assets/treatment-systems.jpg";
 import disinfectionSystems from "@/assets/disinfection-systems.jpg";
 import poolEquipment from "@/assets/pool-equipment.jpg";
@@ -11,9 +12,11 @@ import ozoneGenerator from "@/assets/ozone-generator.jpg";
 import dosingSystems from "@/assets/dosing-systems.jpg";
 import electricHeaters from "@/assets/electric-heaters.jpg";
 import circulationPumps from "@/assets/circulation-pumps.jpg";
-import { Droplets, Shield, Waves, Zap, Filter, Settings, Atom, Wind, Beaker, Thermometer, RotateCw } from "lucide-react";
+import { ArrowLeft, Droplets, Shield, Waves, Zap, Filter, Settings, Atom, Wind, Beaker, Thermometer, RotateCw } from "lucide-react";
 
-const Products = () => {
+const ProductDetail = () => {
+  const { productId } = useParams();
+  const navigate = useNavigate();
 
   const products = [
     {
@@ -21,7 +24,7 @@ const Products = () => {
       title: "Water Treatment Systems",
       description: "Robust water treatment systems designed for efficiency and compliance with the highest industry standards.",
       image: treatmentSystems,
-      icon: <Droplets className="h-8 w-8 text-primary" />,
+      icon: <Droplets className="h-12 w-12 text-primary" />,
       features: [
         "Multi-stage filtration technology",
         "Automated control systems", 
@@ -42,7 +45,7 @@ const Products = () => {
       title: "Water Disinfection Equipment", 
       description: "State-of-the-art disinfection equipment for guaranteed water safety and pathogen elimination.",
       image: disinfectionSystems,
-      icon: <Shield className="h-8 w-8 text-primary" />,
+      icon: <Shield className="h-12 w-12 text-primary" />,
       features: [
         "UV sterilization technology",
         "Chemical-free disinfection process", 
@@ -63,7 +66,7 @@ const Products = () => {
       title: "Swimming Pool Equipment",
       description: "Commercial-grade equipment for pristine and safe aquatic facilities with advanced automation.",
       image: poolEquipment,
-      icon: <Waves className="h-8 w-8 text-primary" />,
+      icon: <Waves className="h-12 w-12 text-primary" />,
       features: [
         "High-capacity circulation pumps",
         "Advanced multi-media filtration", 
@@ -84,7 +87,7 @@ const Products = () => {
       title: "UV Systems",
       description: "Advanced ultraviolet disinfection systems for chemical-free water treatment and pathogen elimination.",
       image: uvSystems,
-      icon: <Zap className="h-8 w-8 text-primary" />,
+      icon: <Zap className="h-12 w-12 text-primary" />,
       features: [
         "UV-C technology for disinfection",
         "No chemical residue or byproducts",
@@ -105,7 +108,7 @@ const Products = () => {
       title: "Copper Ionization Systems",
       description: "Eco-friendly copper ionization systems for natural water sanitization using mineral technology.",
       image: copperIonization,
-      icon: <Atom className="h-8 w-8 text-primary" />,
+      icon: <Atom className="h-12 w-12 text-primary" />,
       features: [
         "Natural mineral sanitization",
         "Long-lasting copper electrodes",
@@ -126,7 +129,7 @@ const Products = () => {
       title: "Ozone Generation Systems",
       description: "Powerful ozone generation systems for superior water oxidation and advanced disinfection.",
       image: ozoneGenerator,
-      icon: <Wind className="h-8 w-8 text-primary" />,
+      icon: <Wind className="h-12 w-12 text-primary" />,
       features: [
         "On-site ozone production",
         "Advanced oxidation process",
@@ -147,7 +150,7 @@ const Products = () => {
       title: "Chemical Dosing Systems",
       description: "Precision chemical dosing pumps and systems for accurate water treatment chemical delivery.",
       image: dosingSystems,
-      icon: <Beaker className="h-8 w-8 text-primary" />,
+      icon: <Beaker className="h-12 w-12 text-primary" />,
       features: [
         "Precision metering pumps",
         "Automated control systems",
@@ -168,7 +171,7 @@ const Products = () => {
       title: "Electric Water Heaters",
       description: "Efficient electric heating systems for optimal water temperature control in all applications.",
       image: electricHeaters,
-      icon: <Thermometer className="h-8 w-8 text-primary" />,
+      icon: <Thermometer className="h-12 w-12 text-primary" />,
       features: [
         "Energy efficient heating elements",
         "Digital temperature controls",
@@ -189,7 +192,7 @@ const Products = () => {
       title: "Water Circulation Pumps",
       description: "High-performance circulation pumps for continuous water flow and optimal system operation.",
       image: circulationPumps,
-      icon: <RotateCw className="h-8 w-8 text-primary" />,
+      icon: <RotateCw className="h-12 w-12 text-primary" />,
       features: [
         "Variable speed drive capability",
         "High hydraulic efficiency",
@@ -210,7 +213,7 @@ const Products = () => {
       title: "Industrial Water Systems",
       description: "Heavy-duty industrial water processing equipment for manufacturing and process applications.",
       image: treatmentSystems,
-      icon: <Zap className="h-8 w-8 text-primary" />,
+      icon: <Zap className="h-12 w-12 text-primary" />,
       features: [
         "High-pressure pump systems",
         "Corrosion-resistant materials",
@@ -231,7 +234,7 @@ const Products = () => {
       title: "Advanced Filtration",
       description: "Precision filtration systems for removing contaminants and ensuring water purity standards.",
       image: disinfectionSystems,
-      icon: <Filter className="h-8 w-8 text-primary" />,
+      icon: <Filter className="h-12 w-12 text-primary" />,
       features: [
         "Multi-stage filtration process",
         "Automatic backwash systems",
@@ -252,7 +255,7 @@ const Products = () => {
       title: "Automation & Controls",
       description: "Smart control systems for automated water treatment operations and remote monitoring.",
       image: poolEquipment,
-      icon: <Settings className="h-8 w-8 text-primary" />,
+      icon: <Settings className="h-12 w-12 text-primary" />,
       features: [
         "PLC-based control systems",
         "Web-enabled remote access",
@@ -270,84 +273,101 @@ const Products = () => {
     }
   ];
 
+  const product = products.find(p => p.id === productId);
+
+  if (!product) {
+    return (
+      <div className="min-h-screen">
+        <Navigation />
+        <div className="max-w-7xl mx-auto px-6 py-20 text-center">
+          <h1 className="text-4xl font-bold text-engineering-navy mb-4">Product Not Found</h1>
+          <Button onClick={() => navigate('/products')} variant="industrial">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Products
+          </Button>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-b from-background to-secondary">
+      <section className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-engineering-navy mb-6">
-              Professional Equipment.
-              <span className="block text-primary">Complete Solutions.</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-              Discover our comprehensive range of water treatment, disinfection, and aquatic systems. 
-              Three decades of engineering excellence delivering reliable solutions for every application.
-            </p>
-          </div>
-        </div>
-      </section>
+          <Button 
+            onClick={() => navigate('/products')} 
+            variant="ghost" 
+            className="mb-8"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Products
+          </Button>
 
-      {/* Products Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
-              <Link to={`/products/${product.id}`} key={product.id}>
-                <Card 
-                  className="group hover:shadow-professional transition-all duration-300 hover:-translate-y-2 border-0 shadow-card bg-gradient-to-br from-card to-secondary/20 cursor-pointer"
-                >
-                <CardHeader className="pb-4">
-                  <div className="relative h-48 rounded-lg overflow-hidden mb-4">
-                    <img 
-                      src={product.image} 
-                      alt={product.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-engineering-navy/60 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4">
-                      {product.icon}
-                    </div>
-                  </div>
-                  <CardTitle className="text-2xl text-engineering-navy group-hover:text-primary transition-colors">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Left Column - Title and Image */}
+            <div>
+              <div className="mb-6">
+                <div className="flex items-center gap-4 mb-4">
+                  {product.icon}
+                  <h1 className="text-4xl md:text-5xl font-bold text-engineering-navy">
                     {product.title}
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="space-y-6">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {product.description}
-                  </p>
-                  
-                  <div>
-                    <h4 className="font-semibold text-engineering-navy mb-3">Key Features:</h4>
-                    <ul className="space-y-2">
-                      {product.features.map((feature, index) => (
-                        <li key={index} className="flex items-center text-sm text-foreground">
-                          <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  </h1>
+                </div>
+                <p className="text-xl text-muted-foreground">
+                  {product.description}
+                </p>
+              </div>
 
-                  <div>
-                    <h4 className="font-semibold text-engineering-navy mb-3">Specifications:</h4>
-                    <div className="grid grid-cols-1 gap-2">
-                      {Object.entries(product.specifications).map(([key, value]) => (
-                        <div key={key} className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">{key}:</span>
-                          <span className="text-foreground font-medium">{value}</span>
-                        </div>
-                      ))}
-                    </div>
+              <div className="relative rounded-xl overflow-hidden shadow-professional">
+                <img 
+                  src={product.image} 
+                  alt={product.title}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Right Column - Details */}
+            <div className="space-y-8">
+              <Card className="border-0 shadow-card bg-gradient-to-br from-card to-secondary/20">
+                <CardContent className="pt-6">
+                  <h2 className="text-2xl font-bold text-engineering-navy mb-4">Key Features</h2>
+                  <ul className="space-y-3">
+                    {product.features.map((feature, index) => (
+                      <li key={index} className="flex items-start text-foreground">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 shadow-card bg-gradient-to-br from-card to-secondary/20">
+                <CardContent className="pt-6">
+                  <h2 className="text-2xl font-bold text-engineering-navy mb-4">Technical Specifications</h2>
+                  <div className="space-y-3">
+                    {Object.entries(product.specifications).map(([key, value]) => (
+                      <div key={key} className="flex justify-between items-center py-2 border-b border-border/50 last:border-0">
+                        <span className="text-muted-foreground font-medium">{key}:</span>
+                        <span className="text-foreground font-semibold">{value}</span>
+                      </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
-              </Link>
-            ))}
+
+              <Button 
+                variant="industrial" 
+                size="lg"
+                className="w-full"
+              >
+                Request Quote
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -357,4 +377,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductDetail;
