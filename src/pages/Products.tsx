@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -11,7 +12,7 @@ import ozoneGenerator from "@/assets/ozone-generator.jpg";
 import dosingSystems from "@/assets/dosing-systems.jpg";
 import electricHeaters from "@/assets/electric-heaters.jpg";
 import circulationPumps from "@/assets/circulation-pumps.jpg";
-import { Droplets, Shield, Waves, Zap, Filter, Settings, Atom, Wind, Beaker, Thermometer, RotateCw } from "lucide-react";
+import { ArrowRight, Droplets, Shield, Waves, Zap, Filter, Settings, Atom, Wind, Beaker, Thermometer, RotateCw } from "lucide-react";
 
 const Products = () => {
 
@@ -295,10 +296,10 @@ const Products = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
-              <Link to={`/products/${product.id}`} key={product.id}>
-                <Card 
-                  className="group hover:shadow-professional transition-all duration-300 hover:-translate-y-2 border-0 shadow-card bg-gradient-to-br from-card to-secondary/20 cursor-pointer"
-                >
+              <Card 
+                key={product.id}
+                className="group hover:shadow-professional transition-all duration-300 hover:-translate-y-2 border-0 shadow-card bg-gradient-to-br from-card to-secondary/20"
+              >
                 <CardHeader className="pb-4">
                   <div className="relative h-48 rounded-lg overflow-hidden mb-4">
                     <img 
@@ -321,32 +322,18 @@ const Products = () => {
                     {product.description}
                   </p>
                   
-                  <div>
-                    <h4 className="font-semibold text-engineering-navy mb-3">Key Features:</h4>
-                    <ul className="space-y-2">
-                      {product.features.map((feature, index) => (
-                        <li key={index} className="flex items-center text-sm text-foreground">
-                          <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-engineering-navy mb-3">Specifications:</h4>
-                    <div className="grid grid-cols-1 gap-2">
-                      {Object.entries(product.specifications).map(([key, value]) => (
-                        <div key={key} className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">{key}:</span>
-                          <span className="text-foreground font-medium">{value}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <Button 
+                    variant="industrial" 
+                    className="w-full group-hover:bg-primary group-hover:text-white"
+                    asChild
+                  >
+                    <Link to={`/products/${product.id}`}>
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
-              </Link>
             ))}
           </div>
         </div>
