@@ -1,105 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
-import treatmentSystems from "@/assets/treatment-systems.jpg";
-import disinfectionSystems from "@/assets/disinfection-systems.jpg";
-import poolEquipment from "@/assets/pool-equipment.jpg";
-import uvSystems from "@/assets/uv-systems.jpg";
-import copperIonization from "@/assets/copper-ionization.jpg";
-import ozoneGenerator from "@/assets/ozone-generator.jpg";
-import dosingSystems from "@/assets/dosing-systems.jpg";
-import electricHeaters from "@/assets/electric-heaters.jpg";
-import circulationPumps from "@/assets/circulation-pumps.jpg";
-import { ArrowRight, Droplets, Shield, Waves, Zap, Atom, Wind, Beaker, Thermometer, RotateCw } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { drinkingWaterProducts, swimmingPoolProducts } from "@/data/productsData.tsx";
 
 const ProductsSection = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [isPlaying, setIsPlaying] = useState(true);
-  const products = [
-    {
-      id: "treatment",
-      title: "Water Treatment",
-      description: "Robust water treatment systems designed for efficiency and compliance.",
-      image: treatmentSystems,
-      icon: <Droplets className="h-8 w-8 text-primary" />,
-      features: ["Multi-stage filtration", "Automated controls", "Energy efficient"],
-      cta: "View Treatment Systems"
-    },
-    {
-      id: "disinfection",
-      title: "Water Disinfection", 
-      description: "State-of-the-art disinfection equipment for guaranteed water safety.",
-      image: disinfectionSystems,
-      icon: <Shield className="h-8 w-8 text-primary" />,
-      features: ["UV sterilization", "Chemical-free process", "Real-time monitoring"],
-      cta: "View Disinfection Systems"
-    },
-    {
-      id: "pool",
-      title: "Swimming Pool Equipment",
-      description: "Commercial-grade equipment for pristine and safe aquatic facilities.",
-      image: poolEquipment,
-      icon: <Waves className="h-8 w-8 text-primary" />,
-      features: ["High-capacity pumps", "Advanced filtration", "Smart controls"],
-      cta: "View Pool Systems"
-    },
-    {
-      id: "uv-systems",
-      title: "UV Systems",
-      description: "Advanced ultraviolet disinfection systems for chemical-free water treatment.",
-      image: uvSystems,
-      icon: <Zap className="h-8 w-8 text-primary" />,
-      features: ["UV-C technology", "No chemical residue", "Low maintenance"],
-      cta: "View UV Systems"
-    },
-    {
-      id: "copper-ionization",
-      title: "Copper Ionization",
-      description: "Eco-friendly copper ionization systems for natural water sanitization.",
-      image: copperIonization,
-      icon: <Atom className="h-8 w-8 text-primary" />,
-      features: ["Natural sanitization", "Long-lasting electrodes", "Mineral-based"],
-      cta: "View Copper Systems"
-    },
-    {
-      id: "ozone-generator",
-      title: "Ozone Generator",
-      description: "Powerful ozone generation systems for superior water oxidation.",
-      image: ozoneGenerator,
-      icon: <Wind className="h-8 w-8 text-primary" />,
-      features: ["Ozone production", "Oxidation process", "Eco-friendly"],
-      cta: "View Ozone Systems"
-    },
-    {
-      id: "dosing",
-      title: "Dosing Systems",
-      description: "Precision chemical dosing pumps for accurate water treatment.",
-      image: dosingSystems,
-      icon: <Beaker className="h-8 w-8 text-primary" />,
-      features: ["Precision dosing", "Automated control", "Multiple chemicals"],
-      cta: "View Dosing Systems"
-    },
-    {
-      id: "electric-heaters",
-      title: "Electric Heaters",
-      description: "Efficient electric heating systems for optimal water temperature control.",
-      image: electricHeaters,
-      icon: <Thermometer className="h-8 w-8 text-primary" />,
-      features: ["Energy efficient", "Digital controls", "Corrosion resistant"],
-      cta: "View Heater Systems"
-    },
-    {
-      id: "circulation-pumps",
-      title: "Circulation Pumps",
-      description: "High-performance circulation pumps for continuous water flow.",
-      image: circulationPumps,
-      icon: <RotateCw className="h-8 w-8 text-primary" />,
-      features: ["Variable speed", "High capacity", "Energy saving"],
-      cta: "View Pump Systems"
-    }
-  ];
+  
+  // Combine all products from both categories
+  const allProducts = [...drinkingWaterProducts, ...swimmingPoolProducts];
 
   // Auto-play functionality
   useEffect(() => {
@@ -141,7 +53,7 @@ const ProductsSection = () => {
             onMouseLeave={handleMouseLeave}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
-              {products.map((product) => (
+              {allProducts.map((product) => (
                 <CarouselItem key={product.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                   <Card className="group hover:shadow-professional transition-all duration-300 hover:-translate-y-2 border-0 shadow-card bg-gradient-to-br from-card to-secondary/20 h-full">
                     <CardHeader className="pb-4">
@@ -167,7 +79,7 @@ const ProductsSection = () => {
                       </p>
                       
                       <ul className="space-y-2">
-                        {product.features.map((feature, index) => (
+                        {product.features.slice(0, 3).map((feature, index) => (
                           <li key={index} className="flex items-center text-sm text-foreground">
                             <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                             {feature}
@@ -181,7 +93,7 @@ const ProductsSection = () => {
                         asChild
                       >
                         <Link to={`/products/${product.id}`}>
-                          {product.cta}
+                          Learn More
                           <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                       </Button>
