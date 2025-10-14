@@ -12,16 +12,14 @@ const Products = () => {
       title: "Drinking Water",
       description: "Advanced water treatment systems for safe and pure drinking water. Our solutions include copper-silver ionization and UV disinfection systems.",
       path: "/products/drinking-water",
-      icon: <Droplets className="h-12 w-12 text-primary" />,
-      subcategories: ["Copper Silver Ionization", "UV Systems"]
+      icon: <Droplets className="h-12 w-12 text-primary" />
     },
     {
       id: "swimming-pool",
       title: "Swimming Pool Products",
       description: "Complete range of professional swimming pool equipment including UV systems, pumps, heaters, chemical dosing, filtration systems, and accessories.",
       path: "/products/swimming-pool",
-      icon: <Waves className="h-12 w-12 text-primary" />,
-      subcategories: ["UV System", "Copper Silver", "Swimming Pool Pumps", "Electrical Heater", "Chemical Dosing", "Swimming Pool Sand Filter", "Accessories"]
+      icon: <Waves className="h-12 w-12 text-primary" />
     }
   ];
 
@@ -67,18 +65,6 @@ const Products = () => {
                   <p className="text-muted-foreground leading-relaxed text-center">
                     {category.description}
                   </p>
-                  
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-engineering-navy text-sm">Available Products:</h4>
-                    <ul className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
-                      {category.subcategories.map((sub, idx) => (
-                        <li key={idx} className="flex items-center gap-2">
-                          <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
-                          {sub}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                   
                   <Button 
                     variant="industrial" 
