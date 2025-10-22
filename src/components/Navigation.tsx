@@ -50,7 +50,7 @@ const Navigation = () => {
             <a href="#home" onClick={() => handleNavClick("home")} className="text-foreground hover:text-primary transition-colors">
               Home
             </a>
-            <a href="#products" onClick={() => handleNavClick("products")} className="text-foreground hover:text-primary transition-colors cursor-pointer">
+            <a href="/products" onClick={(e) => { e.preventDefault(); navigate('/products'); }} className="text-foreground hover:text-primary transition-colors cursor-pointer">
               Products
             </a>
             <a href="#about" onClick={() => handleNavClick("about")} className="text-foreground hover:text-primary transition-colors">
@@ -82,7 +82,7 @@ const Navigation = () => {
             <a href="#home" onClick={() => handleNavClick("home")} className="block text-foreground hover:text-primary transition-colors">
               Home
             </a>
-            <a href="#products" onClick={() => handleNavClick("products")} className="block text-foreground hover:text-primary transition-colors cursor-pointer">
+            <a href="/products" onClick={(e) => { e.preventDefault(); setIsMenuOpen(false); navigate('/products'); }} className="block text-foreground hover:text-primary transition-colors cursor-pointer">
               Products
             </a>
             <a href="#about" onClick={() => handleNavClick("about")} className="block text-foreground hover:text-primary transition-colors">

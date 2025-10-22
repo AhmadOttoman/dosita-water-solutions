@@ -44,52 +44,31 @@ const ProductDetail = () => {
             Back to Products
           </Button>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Left Column - Title and Image */}
-            <div>
-              <div className="mb-6">
-                <div className="flex items-center gap-4 mb-4">
-                  {product.icon}
-                  <h1 className="text-4xl md:text-5xl font-bold text-engineering-navy">
-                    {product.title}
-                  </h1>
-                </div>
-                <p className="text-xl text-muted-foreground">
-                  {product.description}
-                </p>
-              </div>
-
-              <div className="relative rounded-xl overflow-hidden shadow-professional">
-                <img 
-                  src={product.image} 
-                  alt={product.title}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
+          <div className="space-y-12">
+            {/* Header with Title and Icon */}
+            <div className="flex items-center gap-4 mb-6">
+              {product.icon}
+              <h1 className="text-4xl md:text-5xl font-bold text-engineering-navy">
+                {product.title}
+              </h1>
             </div>
 
-            {/* Right Column - Details */}
-            <div className="space-y-8">
-              <Card className="border-0 shadow-card bg-gradient-to-br from-card to-secondary/20">
-                <CardContent className="pt-6">
-                  <h2 className="text-2xl font-bold text-engineering-navy mb-4">Key Features</h2>
-                  <ul className="space-y-3">
-                    {product.features.map((feature, index) => (
-                      <li key={index} className="flex items-start text-foreground">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+            {/* Introduction Section */}
+            <section>
+              <h2 className="text-3xl font-bold text-engineering-navy mb-4">Introduction</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {product.introduction || product.description}
+              </p>
+            </section>
 
+            {/* Specifications Section */}
+            <section>
+              <h2 className="text-3xl font-bold text-engineering-navy mb-6">Specifications</h2>
               <Card className="border-0 shadow-card bg-gradient-to-br from-card to-secondary/20">
                 <CardContent className="pt-6">
-                  <h2 className="text-2xl font-bold text-engineering-navy mb-4">Technical Specifications</h2>
                   <div className="space-y-3">
                     {Object.entries(product.specifications).map(([key, value]) => (
-                      <div key={key} className="flex justify-between items-center py-2 border-b border-border/50 last:border-0">
+                      <div key={key} className="flex justify-between items-center py-3 border-b border-border/50 last:border-0">
                         <span className="text-muted-foreground font-medium">{key}:</span>
                         <span className="text-foreground font-semibold">{value}</span>
                       </div>
@@ -97,11 +76,86 @@ const ProductDetail = () => {
                   </div>
                 </CardContent>
               </Card>
+            </section>
 
+            {/* Certifications Section */}
+            {product.certifications && product.certifications.length > 0 && (
+              <section>
+                <h2 className="text-3xl font-bold text-engineering-navy mb-6">Certifications</h2>
+                <Card className="border-0 shadow-card bg-gradient-to-br from-card to-secondary/20">
+                  <CardContent className="pt-6">
+                    <ul className="space-y-3">
+                      {product.certifications.map((cert, index) => (
+                        <li key={index} className="flex items-start text-foreground">
+                          <div className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span>{cert}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </section>
+            )}
+
+            {/* Manuals Section */}
+            {product.manuals && product.manuals.length > 0 && (
+              <section>
+                <h2 className="text-3xl font-bold text-engineering-navy mb-6">Manuals</h2>
+                <Card className="border-0 shadow-card bg-gradient-to-br from-card to-secondary/20">
+                  <CardContent className="pt-6">
+                    <div className="space-y-3">
+                      {product.manuals.map((manual, index) => (
+                        <a
+                          key={index}
+                          href={manual.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between p-4 rounded-lg bg-background/50 hover:bg-background transition-colors group"
+                        >
+                          <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                            {manual.title}
+                          </span>
+                          <ArrowLeft className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors rotate-180" />
+                        </a>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+            )}
+
+            {/* Product Images Section */}
+            <section>
+              <h2 className="text-3xl font-bold text-engineering-navy mb-6">Product Images</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Main Product Image */}
+                <div className="relative rounded-xl overflow-hidden shadow-professional">
+                  <img 
+                    src={product.image} 
+                    alt={product.title}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                
+                {/* Additional Images */}
+                {product.productImages && product.productImages.map((img, index) => (
+                  <div key={index} className="relative rounded-xl overflow-hidden shadow-professional">
+                    <img 
+                      src={img} 
+                      alt={`${product.title} - Image ${index + 2}`}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* CTA Button */}
+            <div className="pt-6">
               <Button 
                 variant="industrial" 
                 size="lg"
-                className="w-full"
+                className="w-full md:w-auto"
               >
                 Request Quote
               </Button>

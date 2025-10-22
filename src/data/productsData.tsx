@@ -17,6 +17,10 @@ export interface Product {
   icon: JSX.Element;
   features: string[];
   specifications: Record<string, string>;
+  introduction?: string;
+  certifications?: string[];
+  manuals?: { title: string; url: string }[];
+  productImages?: string[];
 }
 
 export const drinkingWaterProducts: Product[] = [

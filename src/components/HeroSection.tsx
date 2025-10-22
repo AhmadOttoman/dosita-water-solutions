@@ -19,47 +19,6 @@ const HeroSection = () => {
             High-performance water systems engineered for reliability, 
             compliance, and operational efficiency.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="text-lg px-10 py-6 h-auto font-medium"
-              onClick={() => {
-                const productsSection = document.getElementById('products');
-                if (productsSection) {
-                  const offset = 80; // Account for fixed navigation height
-                  const elementPosition = productsSection.offsetTop - offset;
-                  window.scrollTo({
-                    top: elementPosition,
-                    behavior: 'smooth'
-                  });
-                }
-              }}
-            >
-              See Our Products
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="text-lg px-10 py-6 h-auto font-medium border-2 hover:bg-primary hover:text-white hover:border-primary"
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  const offset = 80; // Account for fixed navigation height
-                  const elementPosition = contactSection.offsetTop - offset;
-                  window.scrollTo({
-                    top: elementPosition,
-                    behavior: 'smooth'
-                  });
-                }
-              }}
-            >
-              Contact Engineering
-            </Button>
-          </div>
         </div>
       </div>
       
