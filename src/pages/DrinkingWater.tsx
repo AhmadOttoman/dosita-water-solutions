@@ -15,9 +15,9 @@ const DrinkingWater = () => {
       <section className="pt-20 pb-16 bg-gradient-to-b from-background to-secondary">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-engineering-navy mb-6">
-              Drinking Water Solutions
-              <span className="block text-primary">Pure & Safe Water</span>
+            <h1 className="text-5xl md:text-7xl font-bold text-engineering-navy mb-6 uppercase tracking-tight">
+              Drinking Water
+              <span className="block text-primary">Pure & Safe</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
               Advanced drinking water treatment systems ensuring the highest standards of water quality and safety for residential and commercial applications.

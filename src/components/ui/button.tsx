@@ -9,18 +9,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all duration-300",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all duration-300 uppercase tracking-wide font-semibold",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border-2 border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-to-r from-primary to-industrial-blue text-white hover:shadow-xl hover:scale-[1.02] transition-all duration-300 font-semibold",
-        industrial: "bg-industrial-blue text-industrial-blue-foreground hover:bg-engineering-navy transition-all duration-300 shadow-professional",
-        'outline-white': "border-2 border-white text-white hover:bg-white hover:text-industrial-blue transition-all duration-300",
+        hero: "bg-gradient-to-r from-aqua-teal to-primary text-white hover:shadow-xl hover:scale-[1.02] transition-all duration-300 font-semibold uppercase tracking-wide",
+        industrial: "bg-engineering-navy text-white hover:bg-aqua-teal transition-all duration-300 shadow-professional uppercase tracking-wide font-semibold",
+        'outline-white': "border-2 border-white text-white hover:bg-white hover:text-engineering-navy transition-all duration-300 uppercase tracking-wide font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",

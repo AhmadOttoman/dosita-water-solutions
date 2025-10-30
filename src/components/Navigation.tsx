@@ -35,41 +35,43 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
+    <nav className="fixed top-0 w-full z-50 bg-engineering-navy/95 backdrop-blur-sm shadow-lg">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center">
-            <div className="text-2xl font-bold text-engineering-navy">
-              Pool
+        <div className="flex items-center justify-center h-20 relative">
+          {/* Desktop Navigation - Left Side */}
+          <div className="hidden lg:flex items-center space-x-8 absolute left-0">
+            <a href="#home" onClick={() => handleNavClick("home")} className="text-white hover:text-primary transition-colors font-medium">
+              Home
+            </a>
+            <a href="/products" onClick={(e) => { e.preventDefault(); navigate('/products'); }} className="text-white hover:text-primary transition-colors cursor-pointer font-medium">
+              Our Products
+            </a>
+          </div>
+
+          {/* Logo - Centered */}
+          <div className="flex items-center justify-center">
+            <div className="text-3xl font-bold text-white tracking-wider">
+              AQUA
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" onClick={() => handleNavClick("home")} className="text-foreground hover:text-primary transition-colors">
-              Home
-            </a>
-            <a href="/products" onClick={(e) => { e.preventDefault(); navigate('/products'); }} className="text-foreground hover:text-primary transition-colors cursor-pointer">
-              Products
-            </a>
-            <a href="#about" onClick={() => handleNavClick("about")} className="text-foreground hover:text-primary transition-colors">
+          {/* Desktop Navigation - Right Side */}
+          <div className="hidden lg:flex items-center space-x-8 absolute right-0">
+            <a href="#about" onClick={() => handleNavClick("about")} className="text-white hover:text-primary transition-colors font-medium">
               About
             </a>
-            <a href="#contact" onClick={() => handleNavClick("contact")} className="text-foreground hover:text-primary transition-colors">
-              Contact
+            <a href="#contact" onClick={() => handleNavClick("contact")} className="text-white hover:text-primary transition-colors font-medium">
+              Contact Us
             </a>
-            <Button variant="industrial" size="sm">
-              Get Quote
-            </Button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden absolute right-0">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-white hover:text-primary"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -78,22 +80,19 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-4">
-            <a href="#home" onClick={() => handleNavClick("home")} className="block text-foreground hover:text-primary transition-colors">
+          <div className="lg:hidden py-4 space-y-4 bg-engineering-navy/95">
+            <a href="#home" onClick={() => handleNavClick("home")} className="block text-white hover:text-primary transition-colors">
               Home
             </a>
-            <a href="/products" onClick={(e) => { e.preventDefault(); setIsMenuOpen(false); navigate('/products'); }} className="block text-foreground hover:text-primary transition-colors cursor-pointer">
-              Products
+            <a href="/products" onClick={(e) => { e.preventDefault(); setIsMenuOpen(false); navigate('/products'); }} className="block text-white hover:text-primary transition-colors cursor-pointer">
+              Our Products
             </a>
-            <a href="#about" onClick={() => handleNavClick("about")} className="block text-foreground hover:text-primary transition-colors">
+            <a href="#about" onClick={() => handleNavClick("about")} className="block text-white hover:text-primary transition-colors">
               About
             </a>
-            <a href="#contact" onClick={() => handleNavClick("contact")} className="block text-foreground hover:text-primary transition-colors">
-              Contact
+            <a href="#contact" onClick={() => handleNavClick("contact")} className="block text-white hover:text-primary transition-colors">
+              Contact Us
             </a>
-            <Button variant="industrial" size="sm" className="w-full">
-              Get Quote
-            </Button>
           </div>
         )}
       </div>

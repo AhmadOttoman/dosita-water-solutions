@@ -31,9 +31,9 @@ const ProductsSection = () => {
     <section id="products" className="py-20 bg-gradient-to-b from-background to-secondary">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-engineering-navy mb-6">
-            Specialized Equipment.
-            <span className="block text-primary">Clear Solutions.</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-engineering-navy mb-6 uppercase tracking-tight">
+            Our Products
+            <span className="block text-primary">Excellence In Every Detail</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Three decades of engineering excellence in water treatment, 

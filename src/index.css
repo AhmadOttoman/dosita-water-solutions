@@ -13,53 +13,58 @@ All colors MUST be HSL.
   
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 27%;
+    --foreground: 200 15% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 200 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover-foreground: 200 15% 20%;
 
-    --primary: 210 100% 56%;
+    /* Aqua-inspired teal/cyan blue palette */
+    --primary: 192 82% 51%;
     --primary-foreground: 0 0% 100%;
     
-    --industrial-blue: 215 85% 35%;
+    --industrial-blue: 195 65% 42%;
     --industrial-blue-foreground: 0 0% 100%;
     
-    --engineering-navy: 215 40% 15%;
+    --engineering-navy: 200 50% 18%;
     --engineering-navy-foreground: 0 0% 100%;
+    
+    --aqua-teal: 184 77% 34%;
+    --aqua-teal-foreground: 0 0% 100%;
 
-    --secondary: 210 17% 95%;
-    --secondary-foreground: 215 25% 27%;
+    --secondary: 200 20% 96%;
+    --secondary-foreground: 200 15% 20%;
 
-    --muted: 210 17% 95%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 200 15% 94%;
+    --muted-foreground: 200 10% 45%;
 
-    --accent: 210 17% 95%;
-    --accent-foreground: 215 25% 27%;
+    --accent: 192 82% 51%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 210 100% 56%;
+    --border: 200 15% 88%;
+    --input: 200 15% 88%;
+    --ring: 192 82% 51%;
 
-    /* Custom gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--industrial-blue)));
+    /* Aqua-inspired gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--aqua-teal)), hsl(var(--industrial-blue)));
+    --gradient-overlay: linear-gradient(to right, hsl(var(--engineering-navy) / 0.8), hsl(var(--aqua-teal) / 0.7));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--secondary)));
     
-    /* Professional shadows */
-    --shadow-professional: 0 4px 24px -6px hsl(var(--industrial-blue) / 0.15);
+    /* Premium shadows */
+    --shadow-professional: 0 4px 24px -6px hsl(var(--aqua-teal) / 0.2);
     --shadow-card: 0 2px 16px -4px hsl(var(--industrial-blue) / 0.1);
-    --shadow-hero: 0 8px 32px -8px hsl(var(--primary) / 0.25);
+    --shadow-hero: 0 20px 60px -10px hsl(var(--engineering-navy) / 0.4);
     
     /* Smooth transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
     --sidebar-background: 0 0% 98%;
 

@@ -7,12 +7,12 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-secondary to-background">
+    <section id="contact" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-engineering-navy mb-6">
-            Let's Discuss
-            <span className="block text-primary">Your Project</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-engineering-navy mb-6 uppercase tracking-tight">
+            Get In
+            <span className="block text-primary">Touch</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to engineer the perfect water solution for your business? 
@@ -122,12 +122,12 @@ const ContactSection = () => {
               </CardContent>
             </Card>
 
-            <div className="bg-gradient-to-r from-primary to-industrial-blue text-white p-6 rounded-xl">
-              <h3 className="font-semibold mb-2">Need an Urgent Quote?</h3>
+            <div className="bg-gradient-to-r from-aqua-teal to-primary text-white p-8 rounded-xl shadow-hero">
+              <h3 className="font-semibold mb-2 text-lg uppercase">Need an Urgent Quote?</h3>
               <p className="text-white/90 text-sm mb-4">
                 Our engineering team is standing by for emergency water treatment needs.
               </p>
-              <Button variant="outline-white" size="sm">
+              <Button variant="default" size="sm" className="bg-white text-primary hover:bg-white/90">
                 Emergency Contact
               </Button>
             </div>

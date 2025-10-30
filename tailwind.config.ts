@@ -36,6 +36,10 @@ export default {
 					DEFAULT: 'hsl(var(--engineering-navy))',
 					foreground: 'hsl(var(--engineering-navy-foreground))'
 				},
+				'aqua-teal': {
+					DEFAULT: 'hsl(var(--aqua-teal))',
+					foreground: 'hsl(var(--aqua-teal-foreground))'
+				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
